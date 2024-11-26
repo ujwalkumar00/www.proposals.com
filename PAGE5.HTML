@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: pink;
+        position: relative;  /* To ensure the buttons can be absolutely positioned */
+    }
+
+    img {
+        display: inline-block;
+        height: 109px;
+        width: 130px;
+        margin-left: 45%;
+    }
+
+    .para {
+        display: flex;
+        margin-left: 80px;
+        font-size: 4vh;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-style: bold;
+        color: #e70eff;
+    }
+
+    .buttons-container {
+        display: flex;
+        justify-content: center; /* Center buttons horizontally */
+        align-items: center; /* Center buttons vertically */
+        gap: 20px; /* Space between the buttons */
+    }
+
+    button {
+        height: 40px;
+        width: 100px;
+        background-color: beige;
+        border: 1px solid black;
+        box-shadow: 4px -1px 7px 0px;
+        border-radius: 9px;
+        position: absolute;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        /* padding: 10px 20px; */
+        gap: 20px;
+    }
+
+    a {
+        display: inline-block;
+    }
+</style>
+</head>
+
+<body>
+<div class="container">
+    <div class="gif1">
+        <img src="https://i.pinimg.com/originals/60/4c/fc/604cfcfa429f720c9a696f52829f684d.gif" alt="">
+    </div>
+    <div class="para">
+        <p>ONE MORE LAST TIME...!</p>
+    </div>
+
+    <!-- Buttons container to center both buttons -->
+    <div class="buttons-container">
+        <a href="page6.html ">
+            <button class="button--yes">YES</button>
+        </a>
+        <a href=" ">
+            <button class="button--no">NO</button>
+        </a>
+    </div>
+</div>
+
+<script>
+    let a = document.querySelector("button.button--no");  // Correct selector
+
+    // Add event listener for mouseover
+    a.addEventListener("mouseover", mouseHover);
+    a.addEventListener("touchstart", mouseHover);
+
+    // Function to move the button to a random position
+    function mouseHover() {
+
+
+    
+            // Prevent default behavior for touch event to avoid page scrolling
+            if (event.type === 'touchstart') {
+                event.preventDefault();
+            }
+
+        const buttonWidth = a.offsetWidth;
+        const buttonHeight = a.offsetHeight;
+
+        const maxX = window.innerWidth - buttonWidth;
+        const maxY = window.innerHeight - buttonHeight;
+
+        // Generate random position
+        const i = Math.floor(Math.random() * maxX);
+        const j = Math.floor(Math.random() * maxY);
+      
+  
+    
+        // Apply the new position to the button
+        a.style.left = i + "px";  // Only use left to move the button
+        a.style.top = j + "px";   // Use top to move the button vertically
+        
+    }
+</script>
+</body>
+</html>
